@@ -41,6 +41,7 @@ dispatcher.onPost('/checkIn', function (req, res) {
         "User_Name": req.params.user_name
       };
       MongoClient.connect(MONGO_URL, function(err, db) {
+        db.createCollection("people", {}, function(err, col) {});
         var people = db.collection("people");
         people.find(checkIn).toArray(function(err, people) {
           if(people.length > 0) {
