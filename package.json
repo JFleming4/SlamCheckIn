@@ -4,6 +4,7 @@
   "description": "Keep track of people attending slam",
   "main": "checkIn.js",
   "scripts": {
+    "start": "node checkIn.js"
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
