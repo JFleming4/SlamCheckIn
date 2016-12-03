@@ -1,6 +1,6 @@
 var http = require("http");
 var dispatcher = require('httpdispatcher');
-var PORT = process.env.port || 5000;
+var PORT = process.env.PORT || 5000;
 var SLACK_VALIDATION_TOKEN = 'vKzzyX96y3iZdTUMJFBeV7sh'
 function handleRequest(request, response){
     try {
