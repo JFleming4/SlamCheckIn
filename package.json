@@ -1,0 +1,22 @@
+{
+  "name": "checkin",
+  "version": "1.0.0",
+  "description": "Keep track of people attending slam",
+  "main": "checkIn.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JFleming4/SlamCheckIn.git"
+  },
+  "author": "Justin Fleming",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JFleming4/SlamCheckIn/issues"
+  },
+  "homepage": "https://github.com/JFleming4/SlamCheckIn#readme",
+  "dependencies": {
+    "mongodb": "^2.2.12"
+  }
+}
