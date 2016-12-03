@@ -27,13 +27,19 @@ dispatcher.onPost('/checkIn', function (req, res)
         "TimeStamp": req.params.timestamp,
         "User_Name": req.params.user_name
       };
-      res.writeHead(200, {'Content-Type': 'application/json'})
-      res.end(JSON.stringify({"text": "You've been checked in"}))
+      res.writeHead(200, {'Content-Type': 'application/json'});
+      res.end(JSON.stringify({"text": "You've been checked in"}));
     }
     else
     {
-      res.writeHead(200, {'Content-Type': 'application/json'})
-      res.end(JSON.stringify({"text": "Come back thursday at 6:30 in AP 448B"}))
+      res.writeHead(200, {'Content-Type': 'application/json'});
+      res.end(JSON.stringify({"text": "Come back thursday at 6:30 in AP 448B"}));
     }
   }
+})
+
+dispatcher.onGet('/getAtendees', function (req, res)
+{
+  res.writeHead(200, {'Content-Type': 'application/json'});
+  res.end(JSON.stringify({"text": :'Hello'}));
 })
