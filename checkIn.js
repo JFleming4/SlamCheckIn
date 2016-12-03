@@ -42,7 +42,7 @@ dispatcher.onPost('/checkIn', function (req, res) {
       };
       MongoClient.connect(MONGO_URL, function(err, db) {
         // db.createCollection("people", {}, function(err, col) {});
-        console.log("this is the db\n>: " + JSON.stringify(db));
+        console.log("this is the db\n>: ");
         var people = db.collection('people');
         console.log('this is the collection\n'+ err);
         people.find(checkIn).toArray(function(err, people) {
