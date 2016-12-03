@@ -34,8 +34,8 @@ dispatcher.onPost('/checkIn', function (req, res) {
   if(req.params.token === SLACK_VALIDATION_TOKEN) {
     console.log("Validated")
     day = new Date(req.params.timestamp);
-    //if(day.getDay() === 4)
-    //{
+    if(day.getDay() === 4)
+    {
       checkIn = {
         "Date": getFormatedDate(req.params.timestamp),
         "User_Name": req.params.user_name
@@ -58,12 +58,12 @@ dispatcher.onPost('/checkIn', function (req, res) {
         });
       });
 
-    //}
-    //else
-    //{
-      //res.writeHead(200, {'Content-Type': 'application/json'});
-      //return res.end(JSON.stringify({"text": "Come back thursday at 6:30 in AP 448B"}));
-    //}
+    }
+    else
+    {
+      res.writeHead(200, {'Content-Type': 'application/json'});
+      return res.end(JSON.stringify({"text": "Come back thursday at 6:30 in AP 448B"}));
+    }
   }
 })
 
