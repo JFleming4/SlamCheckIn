@@ -44,5 +44,5 @@ dispatcher.onGet('/getAtendees', function (req, res)
 {
   console.log("In Get")
   res.writeHead(200, {'Content-Type': 'application/json'});
-  return res.end(JSON.stringify({"text": :'Hello'}));
+  return res.end(JSON.stringify({"text": 'Hello'}));
 })
