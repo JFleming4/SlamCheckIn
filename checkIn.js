@@ -42,8 +42,9 @@ dispatcher.onPost('/checkIn', function (req, res) {
       };
       MongoClient.connect(MONGO_URL, function(err, db) {
         // db.createCollection("people", {}, function(err, col) {});
-        console.log('this is the erre\n'+ err);
+
         var people = db.collection('people');
+        console.log('this is the collection\n'+ err);
         people.find(checkIn).toArray(function(err, people) {
           if(people.length > 0) {
             res.writeHead(200, {'Content-Type': 'application/json'});
