@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/JFleming4/SlamCheckIn#readme",
   "dependencies": {
+    "httpdispatcher": "~1.0.0",
     "mongodb": "^2.2.12"
   }
 }
