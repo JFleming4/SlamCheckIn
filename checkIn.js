@@ -47,7 +47,7 @@ dispatcher.onPost('/checkIn', function (req, res) {
             res.writeHead(200, {'Content-Type': 'application/json'});
             return res.end(JSON.stringify({"text": "You already checked in"}));
           } else {
-            people.insert(checkIn, function(err, result) {
+            people.insertMany([checkIn], function(err, result) {
               db.close();
               res.writeHead(200, {'Content-Type': 'application/json'});
               return res.end(JSON.stringify({"text": "You've been checked in"}));
