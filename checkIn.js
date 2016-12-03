@@ -44,7 +44,7 @@ dispatcher.onPost('/checkIn', function (req, res) {
         // db.createCollection("people", {}, function(err, col) {});
         console.log("this is the db\n>: " + db);
         var people = db.collection('people');
-        console.log('this is the collection\n'+ collection);
+        console.log('this is the collection\n'+ people);
         people.find(checkIn).toArray(function(err, people) {
           if(people.length > 0) {
             res.writeHead(200, {'Content-Type': 'application/json'});
