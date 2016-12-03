@@ -45,7 +45,7 @@ dispatcher.onPost('/checkIn', function (req, res) {
         console.log("this is the db\n>: " + db);
         var people = db.collection('people');
         console.log('this is the collection\n'+ people);
-        people.find(checkIn).toArray(function(err, people) {
+        people.find(checkIn).toArray(function(err, ppl) {
           if(people.length > 0) {
             res.writeHead(200, {'Content-Type': 'application/json'});
             return res.end(JSON.stringify({"text": "You already checked in"}));
