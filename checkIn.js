@@ -33,22 +33,21 @@ dispatcher.onPost('/checkIn', function (req, res) {
   console.log("In Post")
   if(req.params.token === SLACK_VALIDATION_TOKEN) {
     console.log("Validated")
-    day = new Date(req.params.timestamp);
+    var day = new Date(req.params.timestamp);
     if(true)
     {
-      checkIn = {
+      var checkIn = {
         "Date": getFormatedDate(req.params.timestamp),
         "User_Name": req.params.user_name
       };
       MongoClient.connect(MONGO_URL, function(err, db) {
-        // db.createCollection("people", {}, function(err, col) {});
         console.log("this is the db\n>: " + db);
         var people = db.collection('people');
         console.log('this is the collection\n'+ people);
         people.find(checkIn).toArray(function(err, ppl) {
           if(ppl.length > 0) {
             res.writeHead(200, {'Content-Type': 'application/json'});
-            text = JSON.stringify({"text": "You already checked in", "ppl":ppl, "day":day, "params":req.params})
+            text = JSON.stringify({"text": "You already checked in", "ppl":ppl, "day":day.getDay(), "params":req.params})
             return res.end(JSON.stringify({"text": text}));
           } else {
             people.insert(checkIn, function(err, result) {
