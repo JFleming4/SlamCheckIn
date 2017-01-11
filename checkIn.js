@@ -48,7 +48,8 @@ dispatcher.onPost('/checkIn', function (req, res) {
         people.find(checkIn).toArray(function(err, ppl) {
           if(ppl.length > 0) {
             res.writeHead(200, {'Content-Type': 'application/json'});
-            return res.end(JSON.stringify({"text": "You already checked in"}));
+            text = JSON.stringify({"text": "You already checked in", "ppl":ppl, "day":day})
+            return res.end(JSON.stringify({"text": text}));
           } else {
             people.insert(checkIn, function(err, result) {
               res.writeHead(200, {'Content-Type': 'application/json'});
