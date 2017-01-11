@@ -20,7 +20,7 @@ server.listen(PORT, function() {
 
 function getFormatedDate(timestamp)
 {
-  var date = new Date(parseInt(timestamp));
+  var date = new Date(parseInt(timestamp) * 1000); //timestamp is not in ms
   var day = date.getDate();
   var month = date.getMonth()+1;
   var year = date.getFullYear();
@@ -33,7 +33,7 @@ dispatcher.onPost('/checkIn', function (req, res) {
   console.log("In Post")
   if(req.params.token === SLACK_VALIDATION_TOKEN) {
     console.log("Validated")
-    var day = new Date(parseInt(req.params.timestamp));
+    var day = new Date(parseInt(req.params.timestamp)*1000); //timestamp is not in ms
     if(true)
     {
       var checkIn = {
