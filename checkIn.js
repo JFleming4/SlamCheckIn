@@ -34,7 +34,7 @@ dispatcher.onPost('/checkIn', function (req, res) {
   if(req.params.token === SLACK_VALIDATION_TOKEN) {
     console.log("Validated")
     var day = new Date(parseInt(req.params.timestamp)*1000); //timestamp is not in ms
-    if(day.getDay() === 4) //Thursday
+    if(true) //screw it slam is everyday
     {
       var checkIn = {
         "Date": getFormatedDate(req.params.timestamp),
