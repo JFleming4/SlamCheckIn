@@ -34,7 +34,7 @@ dispatcher.onPost('/checkIn', function (req, res) {
   if(req.params.token === SLACK_VALIDATION_TOKEN) {
     console.log("Validated")
     var day = new Date(parseInt(req.params.timestamp)*1000); //timestamp is not in ms
-    if(true) //screw it slam is everyday
+    if(day.getDay() == 5) //screw it slam is everyday
     {
       var checkIn = {
         "Date": getFormatedDate(req.params.timestamp),
@@ -62,8 +62,8 @@ dispatcher.onPost('/checkIn', function (req, res) {
     else
     {
       res.writeHead(200, {'Content-Type': 'application/json'});
-      //var text = JSON.stringify({"text": "Come back thursday at 6:30 in AP 448B", day})
-      return res.end(JSON.stringify({"text": "Come back thursday at 6:30 in AP 448B"}));
+      var text = JSON.stringify({"text": "Come back thursday at 6:30 in AP 448B", "day": day.getDay()})
+      return res.end(JSON.stringify({"text": text}));
     }
   }
 })
