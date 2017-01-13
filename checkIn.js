@@ -37,7 +37,7 @@ dispatcher.onPost('/checkIn', function (req, res) {
     // Debugging stuff
     //============================
     res.writeHead(200, {'Content-Type': 'application/json'});
-    var text = JSON.stringify({"text": "Testing", "day": day.getDay(), "date": day})
+    var text = JSON.stringify({"text": "Testing", "day": day.getDay(), "date": day, "timestamp":req.params.timestamp})
     return res.end(JSON.stringify({"text": text}));
     //============================
     if(day.getDay() == 5) //screw it slam is everyday
@@ -68,7 +68,7 @@ dispatcher.onPost('/checkIn', function (req, res) {
     else
     {
       res.writeHead(200, {'Content-Type': 'application/json'});
-      var text = JSON.stringify({"text": "Come back thursday at 6:30 in AP 448B", "day": day.getDay(), "date": day})
+      var text = JSON.stringify({"text": "Come back thursday at 6:30 in AP 448B", "day": day.getDay(), "date": day, "timestamp":req.params.timestamp})
       return res.end(JSON.stringify({"text": text}));
     }
   }
